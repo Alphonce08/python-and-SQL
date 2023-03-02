@@ -4,6 +4,7 @@ from os import path
 connection = path.dirname(path.realpath(__file__))
 db = SqliteDatabase(path.join(connection, "Alkid.db"))
 
+
 #creating our first table
 class Student(Model):
     stud_name = CharField()
@@ -12,8 +13,9 @@ class Student(Model):
 
     class Meta:
         database = db
-Student.create_table(fail_silently=True)
 
+
+Student.create_table(fail_silently=True)
 
 
 class Product(Model):
@@ -24,16 +26,21 @@ class Product(Model):
 
     class Meta:
         database = db
+
+
 Product.create_table(fail_silently=True)
 
 
-
-class Users(Model):
-    user_name = CharField()
-    user_phone = CharField()
-    user_email = CharField()
-    user_password = CharField()
+class Teacher(Model):
+    teacher_name = CharField()
+    teacher_phone = CharField()
+    teacher_subject = CharField()
+    teacher_password = CharField()
 
     class Meta:
         database = db
-Users.create_table(fail_silently=True)
+
+
+Teacher.create_table(fail_silently=True)
+
+
